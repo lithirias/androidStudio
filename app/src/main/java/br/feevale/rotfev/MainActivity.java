@@ -26,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
         Pessoa p = new Pessoa();
         p.setNome(inNome.getText().toString());
         p.setEmail(inEmail.getText().toString());
-
         Toast.makeText(getBaseContext(), p.toString(), Toast.LENGTH_LONG).show();
     }
 }
