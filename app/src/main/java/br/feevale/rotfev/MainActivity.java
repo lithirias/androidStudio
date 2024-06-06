@@ -1,30 +1,32 @@
 package br.feevale.rotfev;
 
 import android.os.Bundle;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.view.View;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
-    TextView txtSaida;
+     EditText inNome;
+     EditText inEmail;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-        txtSaida = findViewById(R.id.exText);
-        txtSaida.setText("Olá Mundo");
-        /*
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
-         */
+        inNome = findViewById(R.id.inNome);
+        inEmail = findViewById(R.id.inEmail);
+    }
+
+    public void processarClickAdd(View n){
+        Pessoa p = new Pessoa();
+        p.setNome(inNome.getText().toString());
+        p.setEmail(inEmail.getText().toString());
+
+        Toast.makeText(getBaseContext(), p.toString(), Toast.LENGTH_LONG).show();
     }
 }
